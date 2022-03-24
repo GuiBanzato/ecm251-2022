@@ -21,18 +21,33 @@ como Steam
 respectivos atributos.
 
 SITE
+
+
 - Loja
+    - Carrossel
     - Jogos
     - Novidades
     - Categorias
+        - Ação
+        - RPG
+        - Aventura
+        - Esporte
+        - Simulador
+        - FPS
     - Promoções
+        - Jogos com desconto
     - Wishlist
+        - Jogos adicionados
     - Área de busca de jogos
+        - Filtro
+            - Categorias
+
 - Login
     - Nick
     - Email
     - Senha
     - Área do usuário
+        - Segurança da conta
         - Amigos
         - Carteira
             - Quantidade de Dinheiro na conta
@@ -41,18 +56,60 @@ SITE
                 - Boleto
                 - Paypal
         - Biblioteca
-            - Jogos
-        - Informações
-            - Perfil
-                - Nick
-                - Email
-                - Senha
-                - Telefone
+            - Jogos Adquiridos
+        - Perfil
+             - Nick
+             - Email
+             - Senha
+             - Telefone
+
 
 - Comunidade
+    - Amigos
+    - Posts
+
+
 - Idioma
+    - Alemão
+    - Chinês simplificado
+    - Coreano
+    - Espanhol (América Latina)
+    - Finlandês
+    - Grego
+    - Húngaro
+    - Italiano
+    - Norueguês
+    - Português
+    - Romeno
+    - Sueco
+    - Tcheco
+    - Ucraniano
+    - Búlgaro
+    - Chinês tradicional
+    - Dinamarquês
+    - Espanhol (Espanha)
+    - Francês
+    - Holandês
+    - Inglês
+    - Japonês
+    - Polonês
+    - Português (Brasil)
+    - Russo
+    - Tailandês
+    - Turco
+    - Vietnamita
+
+
 - Suporte
+    - Reclamações
+    - Contato
+    - Recuperação de Conta
+    - Perguntas
+
+
 - Sobre
+    - Informações sobre a plataforma
+
 - Redes Sociais
     - Facebook
     - Twitter
@@ -60,8 +117,13 @@ SITE
     - Instagram
     - Discord
     - Twitch
+
+
 - Download
     - Windows
     - Mac
+    - Aplicativo
+
+
 - Blog
     - Notícias
