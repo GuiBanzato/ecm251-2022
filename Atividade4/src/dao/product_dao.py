@@ -24,33 +24,34 @@ class ProductDAO:
             SELECT * FROM Products;
         """)
         resultados = []
-        for resultado in self.cursor.fetchall():
-            resultados.append(Product(id=resultado[0], name=resultado[1], cost=resultado[2], link=resultado[3]))
+        for result in self.cursor.fetchall():
+            result.append(Product(id=result[0], name=result[1], cost=result[2], link=result[3]))
         self.cursor.close()
-        return resultados
+        return result
     
-    def inserir_item(self, item):
+    def insert_product(self, product):
         self.cursor = self.conn.cursor()
         self.cursor.execute("""
-            INSERT INTO Itens (id, name, cost, link)
+            INSERT INTO Products (id, name, cost, link)
             VALUES(?,?,?,?);
-        """, (item.id, item.name, item.cost, item.link))
+        """, (product.id, product.name, product.cost, product.link))
         self.conn.commit()
         self.cursor.close()
-    def pegar_item(self, id):
+        
+    def get_product(self, id):
         self.cursor = self.conn.cursor()
         self.cursor.execute(f"""
             SELECT * FROM Products
             WHERE id = '{id}';
         """)
-        item = None
-        resultado = self.cursor.fetchone()
-        if resultado != None:
-            item = Product(id=resultado[0], name=resultado[1], cost=resultado[2], link=resultado[3])
+        product = None
+        result = self.cursor.fetchone()
+        if result != None:
+            product = Product(id=result[0], name=result[1], cost=result[2], link=result[3])
         self.cursor.close()
-        return item
+        return product
     
-    def atualizar_item(self, product):
+    def update_product(self, product):
         try:
             self.cursor = self.conn.cursor()
             self.cursor.execute(f"""
@@ -66,7 +67,7 @@ class ProductDAO:
             return False
         return True
     
-    def deletar_item(self, id):
+    def delete_product(self, id):
         try:
             self.cursor = self.conn.cursor()
             self.cursor.execute(f"""
@@ -85,8 +86,8 @@ class ProductDAO:
             SELECT * FROM Products
             WHERE nome LIKE '{name}%';
         """)
-        resultados = []
-        for resultado in self.cursor.fetchall():
-            resultados.append(Product(id=resultado[0], name=resultado[1], cost=resultado[2], link=resultado[3]))
+        result = []
+        for result in self.cursor.fetchall():
+            result.append(Product(id=result[0], name=result[1], cost=result[2], link=result[3]))
         self.cursor.close()
-        return resultados
+        return result

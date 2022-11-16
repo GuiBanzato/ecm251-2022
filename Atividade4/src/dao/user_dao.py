@@ -23,14 +23,13 @@ class UserDAO:
             self.cursor.execute("""
                 SELECT * FROM User;
             """)
-            resultados = []
-            for resultado in self.cursor.fetchall():
-                resultados.append(User(name=resultado[1], email=resultado[2],password=resultado[3]))
+            result = []
+            for result in self.cursor.fetchall():
+                result.append(User(name=result[1], email=result[2],password=result[3]))
             self.cursor.close()
-            return resultados
+            return result
     
     def insert_user(self, user):
-        try:
             self.cursor = self.conn.cursor()
             self.cursor.execute("""
                 INSERT INTO User (name, email, password)
@@ -38,8 +37,19 @@ class UserDAO:
             """, (user.name,user.email,user.password))
             self.conn.commit()
             self.cursor.close()
-        except:
-            print("Erro inserir_usuario user_dao")
+            
+    def get_user(self, id):
+        self.cursor = self.conn.cursor()
+        self.cursor.execute(f"""
+            SELECT * FROM User
+            WHERE id = '{id}';
+        """)
+        user = None
+        result = self.cursor.fetchone()
+        if result != None:
+            user = User(id=result[0], name=result[1], email=result[2], password=result[3])
+        self.cursor.close()
+        return user
             
     def delete_user(self, email):
         try:
@@ -68,21 +78,10 @@ class UserDAO:
             self.conn.commit()
             self.cursor.close()
         except:
-            print('Erro DAO atualizar usuario')
+            return False
         return True
     
-    def get_user(self, id):
-        self.cursor = self.conn.cursor()
-        self.cursor.execute(f"""
-            SELECT * FROM User
-            WHERE id = '{id}';
-        """)
-        item = None
-        resultado = self.cursor.fetchone()
-        if resultado != None:
-            item = User(id=resultado[0], name=resultado[1], email=resultado[2], password=resultado[3])
-        self.cursor.close()
-        return item
+    
     
     def search_all_for_email(self,email):
         self.cursor = self.conn.cursor()
@@ -92,6 +91,6 @@ class UserDAO:
         """)
         result = []
         for result in self.cursor.fetchall():
-            result.append(User(name=result[1], email=result[2], password=result[3]))
+            result.append(User(id=result[0], name=result[1], email=result[2], password=result[3]))
         self.cursor.close()
         return result

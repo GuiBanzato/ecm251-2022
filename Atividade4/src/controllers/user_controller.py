@@ -1,5 +1,5 @@
 from models.user_model import User
-from dao.user_dao import UserDAO
+from src.dao.user_dao import UserDAO
 
 
 class UserController():
