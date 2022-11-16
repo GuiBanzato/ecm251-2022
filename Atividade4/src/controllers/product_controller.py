@@ -1,6 +1,7 @@
 from src.models.product_model import Product
 from src.dao.product_dao import ProductDAO
-class ItemController:
+
+class ProductController:
     def __init__(self) -> None:
         pass
 
@@ -16,14 +17,14 @@ class ItemController:
         return True
 
     def get_all_products(self) -> list[Product]:
-        itens = ProductDAO.get_instance().get_all()
-        return itens
+        products = ProductDAO.get_instance().get_all()
+        return products
     
     def update_product(self, product) -> bool:
         return ProductDAO.get_instance().update_product(product)
 
-    def deletar_item(self, id) -> bool:
-        return ProductDAO.get_instance().deletar_item(id)
+    def delete_product(self, id) -> bool:
+        return ProductDAO.get_instance().delete_product(id)
 
     def search_all_products_name(self, name) -> list[Product]:
         products = ProductDAO.get_instance().search_all_for_name(name)

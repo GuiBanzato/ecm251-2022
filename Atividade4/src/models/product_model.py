@@ -1,4 +1,4 @@
-class Product():
+class Product:
     def __init__(self, id, name, cost, link) -> None:
         self.id = id
         self.name = name
